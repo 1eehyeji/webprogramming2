@@ -11,6 +11,7 @@ public interface StudentMapper {
 	Student findOne(int id);
     Student findByStudentNumber(String studentNumber);
     List<Student> findByName(String name);
+    List<Student> findByDepartmentId(int departmentId);
     List<Student> findAll();
     void insert(Student student);
     void update(Student student);
