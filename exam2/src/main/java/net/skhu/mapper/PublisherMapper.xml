@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+             "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="net.skhu.mapper.PublisherMapper">
+
+	<!-- mybatis cache -->
+	<cache flushInterval="10000" />
+
+	<select id="findAll" resultType="Publisher">
+		SELECT * FROM publisher
+	</select>
+	
+	<select id="findOne" resultType="Publisher">
+		SELECT * FROM publisher
+		WHERE id = #{id}
+	</select>
+	
+	<insert id="insert" useGeneratedKeys="true" keyProperty="id">
+		INSERT publisher(title)
+		VALUES (#{title})
+	</insert>
+	
+	<update id="update">
+		UPDATE publisher
+		SET title = #{title}
+		WHERE id = #{id}
+	</update>
+	
+	<delete id="delete">
+		DELETE FROM publisher WHERE id = #{id}
+	</delete>
+</mapper>
