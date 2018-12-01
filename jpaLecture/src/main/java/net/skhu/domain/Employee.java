@@ -15,7 +15,7 @@ public class Employee {
 	String name;
 	
 	@ManyToOne
-	@JoinColumn(name="departmentId")
+	@JoinColumn(name="departmentId") //다:1 관게에서 1에 해당하는 테이블의 기본키
 	Department department;
 
 	public int getId() {
