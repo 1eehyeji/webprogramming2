@@ -1,6 +1,5 @@
 package net.skhu.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Stream;
 
@@ -17,13 +16,14 @@ import net.skhu.domain.Student;
 import net.skhu.repository.DepartmentRepository;
 import net.skhu.repository.ProfessorRepository;
 import net.skhu.repository.StudentRepository;
+import net.skhu.repository.StudentRepository3;
 
 @RestController
 @RequestMapping("api")
 public class APIController {
 
 	@Autowired DepartmentRepository departmentRepository;
-	@Autowired StudentRepository studentRepository;
+	@Autowired StudentRepository3 studentRepository;
 	@Autowired ProfessorRepository professorRepository;
 
 	@RequestMapping("departments")

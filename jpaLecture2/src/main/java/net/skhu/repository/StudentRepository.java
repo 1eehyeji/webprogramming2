@@ -6,7 +6,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import net.skhu.domain.Student;
 
-public interface StudentRepository extends JpaRepository<Student, Integer> {
+public interface StudentRepository extends JpaRepository<Student, Integer> { //
+	
+	List<Student> findById(int id);
 	
 	List<Student> findByName(String name); // 이름으로 찾기
 	List<Student> findByNameStartsWith(String name); // name 변수 값이 포함된 이름 모두 찾음

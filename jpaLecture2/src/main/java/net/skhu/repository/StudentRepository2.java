@@ -19,10 +19,10 @@ public interface StudentRepository2 extends JpaRepository<Student, Integer> {
     @Query("SELECT s FROM Student s WHERE s.department.id = ?1")
     List<Student> findStudentsByDepartmentId(int departmentId);
 
-    @Query("SELECT s FROM Student s WHERE s.studentNo = ?1 OR s.name = ?2")
+    @Query("SELECT s FROM Student s WHERE s.studentNo = ?1 OR s.name = ?2") // 파라미터 순서
     List<Student> findStudentsByStudentNoOrName(String studentNo, String name);
 
-    @Query("SELECT s FROM Student s WHERE s.studentNo = :studentNo OR s.name = :name")
+    @Query("SELECT s FROM Student s WHERE s.studentNo = :studentNo OR s.name = :name")	// 파라미터 이름
     List<Student> findStudentsByStudentNoOrName2(@Param("studentNo") String studentNo, @Param("name") String name);
 
     @Query("SELECT s.department FROM Student s")
