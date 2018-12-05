@@ -1,0 +1,48 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.skhu.mapper.RegisterMapper">
+
+	<select id="findAll" resultType="Register">
+		select * from register
+
+	</select>
+
+	<select id="findByUserId" resultType="Register">
+		select * from register where
+		userId = #{userId};
+	</select>
+
+	<select id="findByCode" resultType="Register">
+		select * from register where
+		courseCode like #{st};
+	</select>
+
+	<select id="findByName" resultType="Register">
+		select * from register where
+		courseName like #{st};
+	</select>
+
+	<select id="findByUserIdByCode" resultType="Register">
+		select * from
+		register where courseCode like #{st} and userId = #{userId}
+	</select>
+
+	<select id="findByUserIdByName" resultType="Register">
+		select * from
+		register where courseName like #{st} and userId = #{userId}
+	</select>
+
+	<insert id="insert" parameterType="java.util.List"
+		useGeneratedKeys="true" keyProperty="id">
+		INSERT into register(userId, year, semester, courseCode,
+		courseName,
+		completeDivision, unit, credit)
+		VALUES
+		<foreach collection="list" item="register" separator=" , ">
+			('${register.userId}', '${register.year}', '${register.semester}',
+			'${register.courseCode}', '${register.courseName}',
+			'${register.completeDivision}', '${register.unit}',
+			'${register.credit}')
+		</foreach>
+	</insert>
+
+</mapper>
